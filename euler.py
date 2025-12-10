@@ -4,15 +4,23 @@
 # - Tabla con x, y_euler, y_exact, error
 # - Gráfica integrada
 
-import tkinter as tk
-from tkinter import ttk, messagebox
 import math
 import matplotlib
-from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 from matplotlib.figure import Figure
 import pandas as pd
 
-matplotlib.use("TkAgg")
+try:
+    import tkinter as tk
+    from tkinter import ttk, messagebox
+    from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
+    matplotlib.use("TkAgg")
+except ImportError:
+    tk = None
+    ttk = None
+    messagebox = None
+    FigureCanvasTkAgg = None
+    # En entorno sin Tk, no llames a la GUI de este archivo.
+
 
 
 # --------------------------
