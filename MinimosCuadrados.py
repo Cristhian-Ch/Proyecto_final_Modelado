@@ -1,8 +1,19 @@
 import numpy as np
-import tkinter as tk
-from tkinter import ttk, messagebox, filedialog
 import matplotlib.pyplot as plt
-from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
+
+# Intentar importar Tkinter solo si está disponible (PC normal).
+# En la nube (Streamlit Cloud), Tkinter no existe, así que no debe romper el módulo.
+try:
+    import tkinter as tk
+    from tkinter import ttk, messagebox, filedialog
+    from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
+except ImportError:
+    tk = None
+    ttk = None
+    messagebox = None
+    filedialog = None
+    FigureCanvasTkAgg = None
+
 
 """
 Interfaz para Ajuste por Mínimos Cuadrados (regresión polinomial).

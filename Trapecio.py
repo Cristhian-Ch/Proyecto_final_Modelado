@@ -2,15 +2,22 @@
 # Método del Trapecio compuesto con interfaz gráfica,
 # tabla de puntos y gráfica de la función.
 
-import tkinter as tk
-from tkinter import ttk, messagebox
 import math
 import matplotlib
-from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 from matplotlib.figure import Figure
 
-# Backend para usar matplotlib dentro de Tkinter
-matplotlib.use("TkAgg")
+# Intentar importar Tkinter y el backend de Matplotlib para Tk.
+# Si no están disponibles (por ejemplo en Streamlit Cloud), no se detiene el programa.
+try:
+    import tkinter as tk
+    from tkinter import ttk, messagebox
+    from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
+except ImportError:
+    tk = None
+    ttk = None
+    messagebox = None
+    FigureCanvasTkAgg = None
+
 
 
 # ---------- Función auxiliar para crear f(x) segura ----------

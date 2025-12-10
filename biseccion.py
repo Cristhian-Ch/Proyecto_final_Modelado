@@ -1,9 +1,16 @@
 import numpy as np
-import tkinter as tk
-from tkinter import ttk, messagebox
 import matplotlib.pyplot as plt
-from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 import math
+
+try:
+    import tkinter as tk
+    from tkinter import ttk, messagebox
+    from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
+except ImportError:
+    tk = None
+    ttk = None
+    messagebox = None
+    FigureCanvasTkAgg = None
 
 # ==================================================
 # MÉTODO DE BISECCIÓN

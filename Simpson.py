@@ -2,15 +2,23 @@
 # Interfaz con Simpson 1/3 Simple y Simpson 1/3 Compuesto ("doble")
 # Incluye: entrada de datos, botón de ejemplo, tabla de puntos y gráfica.
 
-import tkinter as tk
-from tkinter import ttk, messagebox
+
 import math
 import matplotlib
-from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 from matplotlib.figure import Figure
 
-# Usar backend de Tkinter
-matplotlib.use("TkAgg")
+# Intentar importar Tkinter y el backend de Matplotlib para Tk.
+# Si no están disponibles (por ejemplo en Streamlit Cloud), no se detiene el programa.
+try:
+    import tkinter as tk
+    from tkinter import ttk, messagebox
+    from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
+except ImportError:
+    tk = None
+    ttk = None
+    messagebox = None
+    FigureCanvasTkAgg = None
+
 
 
 def crear_funcion(funcion_str):

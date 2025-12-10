@@ -3,15 +3,22 @@
 # Opción B: el usuario escribe expresiones sin "math." (sin, cos, exp, etc. disponibles)
 # No imprime nada en consola; todo se muestra en la interfaz.
 
-import tkinter as tk
-from tkinter import ttk, messagebox
 import math
-import pandas as pd
 import matplotlib
-from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 from matplotlib.figure import Figure
 
-matplotlib.use("TkAgg")
+# Intentar importar Tkinter y el backend de Matplotlib para Tk.
+# Si no están disponibles (por ejemplo en Streamlit Cloud), no se detiene el programa.
+try:
+    import tkinter as tk
+    from tkinter import ttk, messagebox
+    from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
+except ImportError:
+    tk = None
+    ttk = None
+    messagebox = None
+    FigureCanvasTkAgg = None
+
 
 # -----------------------
 # Funciones matemáticas seguras expuestas (sin escribir math.)

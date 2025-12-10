@@ -1,8 +1,16 @@
-import tkinter as tk
-from tkinter import ttk, messagebox
 import numpy as np
 import pandas as pd
 import math
+
+# Importar Tkinter solo si está disponible (en Streamlit Cloud NO lo está)
+try:
+    import tkinter as tk
+    from tkinter import ttk, messagebox
+except ImportError:
+    tk = None
+    ttk = None
+    messagebox = None
+
 
 # ========= Lógica del método de punto fijo multivariable =========
 

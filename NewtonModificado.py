@@ -1,7 +1,15 @@
-import tkinter as tk
-from tkinter import messagebox
 import numpy as np
 import pandas as pd
+
+# Intentar importar Tkinter solo si está disponible.
+# En Streamlit Cloud NO existe, así que se evita el error.
+try:
+    import tkinter as tk
+    from tkinter import messagebox
+except ImportError:
+    tk = None
+    messagebox = None
+
 
 def newton_modificado(f, J, x0, tol=1e-8, maxiter=50):
     x = x0.astype(float).copy()

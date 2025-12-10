@@ -1,6 +1,12 @@
-import tkinter as tk
-from tkinter import messagebox
-from tkinter import scrolledtext
+# Importar Tkinter solo si está disponible
+try:
+    import tkinter as tk
+    from tkinter import messagebox, scrolledtext
+except ImportError:
+    tk = None
+    messagebox = None
+    scrolledtext = None
+
 
 class RungeKuttaGUI:
     def __init__(self, root):
