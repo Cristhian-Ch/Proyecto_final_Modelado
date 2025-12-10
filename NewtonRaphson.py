@@ -1,9 +1,19 @@
 import numpy as np
-import tkinter as tk
-from tkinter import ttk, messagebox
 import matplotlib.pyplot as plt
-from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 import math
+
+# Intentar importar Tkinter y los componentes gráficos.
+# En Streamlit Cloud NO existe Tkinter, así que debemos evitar que falle.
+try:
+    import tkinter as tk
+    from tkinter import ttk, messagebox
+    from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
+except ImportError:
+    tk = None
+    ttk = None
+    messagebox = None
+    FigureCanvasTkAgg = None
+
 
 # ==================================================
 # MÉTODO DE NEWTON-RAPHSON
